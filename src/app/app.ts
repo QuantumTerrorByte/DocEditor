@@ -1,7 +1,7 @@
-import {DocumentEditorContainer, Toolbar} from '@syncfusion/ej2-documenteditor';
+import {DocumentEditorContainer, Toolbar, DocumentEditor, FormatType, WordExport, SfdtExport} from '@syncfusion/ej2-documenteditor';
 import {TitleBar} from './title-bar';
 import {ej} from "@syncfusion/ej2/dist/ej2";
-import {fileRequest} from "./fileRequest";
+import documenteditor = ej.documenteditor;
 
 /**
  * Default document editor sample
@@ -29,10 +29,12 @@ let data: string = `{
     ]
 }`;
 let hostUrl: string = 'https://ej2services.syncfusion.com/production/web-services/';
+// let hostUrl: string = 'https://localhost:4000/';
 
 
-let containerDE: DocumentEditorContainer = new DocumentEditorContainer({enableToolbar: true, height: '590px'});
-DocumentEditorContainer.Inject(Toolbar);
+let containerDE: DocumentEditorContainer = new DocumentEditorContainer({enableToolbar: true, height: '880px'});
+// DocumentEditorContainer.Inject(Toolbar);
+DocumentEditorContainer.Inject(WordExport, SfdtExport);
 containerDE.serviceUrl = hostUrl + 'api/documenteditor/';
 containerDE.appendTo('#container');
 
@@ -51,6 +53,7 @@ containerDE.documentChange = (): void => {
     titleBar.updateDocumentTitle();
     containerDE.documentEditor.focusIn();
 };
+//save file
 testSaveBtn.addEventListener('click', (e) => {
     let fileName = (<HTMLInputElement>document.getElementById("fileName")).value;
     containerDE.documentEditor.saveAsBlob('Docx').then(blobFile => {
@@ -78,19 +81,12 @@ document.getElementById("import").addEventListener("click", (): void => {
 });
 document.getElementById('file_upload').addEventListener("change", (e: any): void => {
     if (e.target.files[0]) {
-        //Get the selected file.
         let file = e.target.files[0];
         if (file.name.substr(file.name.lastIndexOf('.')) !== '.sfdt') {
             loadFile(file);
         }
     }
 });
-
-document.getElementById("export").addEventListener('click', (e: any) => {
-    let fileName = (<HTMLInputElement>document.getElementById('exportInput')).value; //todo length check
-    fileRequest(fileName);
-});
-
 function loadFile(file: File): void {
     let ajax: XMLHttpRequest = new XMLHttpRequest();
     ajax.open('POST', 'https://localhost:4000/Import', true);
@@ -103,8 +99,31 @@ function loadFile(file: File): void {
     }
     let formData: FormData = new FormData();
     formData.append('files', file);
+    ajax.send(formData);
+}
+
+document.getElementById("export").addEventListener('click', (e: any) => {
+    let fileName = (<HTMLInputElement>document.getElementById('exportInput')).value; //todo length check
+    fileRequest(fileName);
+});
+
+function fileRequest(fileName: string): void {
+    let ajax: XMLHttpRequest = new XMLHttpRequest();
+    ajax.open('POST', 'https://localhost:4000/GetFile', true);
+    ajax.onreadystatechange = () => {
+        if (ajax.readyState === 4) {
+            if (ajax.status === 200 || ajax.status === 304) {
+                containerDE.documentEditor.open(ajax.responseText);
+            }
+        }
+    }
+    let formData: FormData = new FormData();
+    formData.append('fileName', fileName);
     //Send the selected file to web api for converting it into sfdt.
     ajax.send(formData);
 }
+
+
+
 
 
