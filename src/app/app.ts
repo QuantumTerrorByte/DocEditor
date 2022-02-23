@@ -1,13 +1,30 @@
-import {DocumentEditorContainer, Toolbar, DocumentEditor, FormatType, WordExport, SfdtExport} from '@syncfusion/ej2-documenteditor';
+import {
+    DocumentEditorContainer,
+    Toolbar,
+    DocumentEditor,
+    FormatType,
+    WordExport,
+    SfdtExport
+} from '@syncfusion/ej2-documenteditor';
 import {TitleBar} from './title-bar';
-import {ej} from "@syncfusion/ej2/dist/ej2";
-import documenteditor = ej.documenteditor;
 
-/**
- * Default document editor sample
- */
-let testSaveBtn = document.getElementById("testSave");
-let data: string = `{
+const hostUrl: string = 'https://ej2services.syncfusion.com/production/web-services/';
+
+
+let containerDE: DocumentEditorContainer = new DocumentEditorContainer({enableToolbar: true, height: '880px'});
+// DocumentEditorContainer.Inject(Toolbar);
+DocumentEditorContainer.Inject(WordExport, SfdtExport);
+containerDE.serviceUrl = hostUrl + 'api/documenteditor/';
+containerDE.appendTo('#container');
+
+debugger
+
+let titleBar: TitleBar = new TitleBar(document.getElementById('documenteditor_titlebar'),
+    containerDE.documentEditor, true);
+
+debugger
+
+containerDE.documentEditor.open(`{
     "sections": [
         {
             "blocks": [
@@ -27,25 +44,7 @@ let data: string = `{
             }
         }
     ]
-}`;
-let hostUrl: string = 'https://ej2services.syncfusion.com/production/web-services/';
-// let hostUrl: string = 'https://localhost:4000/';
-
-
-let containerDE: DocumentEditorContainer = new DocumentEditorContainer({enableToolbar: true, height: '880px'});
-// DocumentEditorContainer.Inject(Toolbar);
-DocumentEditorContainer.Inject(WordExport, SfdtExport);
-containerDE.serviceUrl = hostUrl + 'api/documenteditor/';
-containerDE.appendTo('#container');
-
-debugger
-
-let titleBar: TitleBar = new TitleBar(document.getElementById('documenteditor_titlebar'),
-    containerDE.documentEditor, true);
-
-debugger
-
-containerDE.documentEditor.open(data);
+}`);
 containerDE.documentEditor.documentName = 'Getting Started';
 titleBar.updateDocumentTitle();
 
@@ -87,6 +86,7 @@ document.getElementById('file_upload').addEventListener("change", (e: any): void
         }
     }
 });
+
 function loadFile(file: File): void {
     let ajax: XMLHttpRequest = new XMLHttpRequest();
     ajax.open('POST', 'https://localhost:4000/Import', true);

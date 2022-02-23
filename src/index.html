@@ -2,39 +2,38 @@
 <html>
 <head>
     <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <title>Essential JS 2</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <title>Doc Editor</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
     <meta name="description" content="Essential JS 2"/>
     <meta name="author" content="Syncfusion"/>
     <link rel="shortcut icon" href="resources/favicon.ico"/>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 
     <!--style reference from app-->
-    <link href="/styles/styles.css" rel="stylesheet"/>
+    <link href="./styles/styles.css" rel="stylesheet"/>
+    <link href="./styles/tittleBar.css" rel="stylesheet"/>
 
     <!--system js reference and configuration-->
     <script src="node_modules/systemjs/dist/system.src.js" type="text/javascript"></script>
     <script src="system.config.js" type="text/javascript"></script>
-    <style>
-        body {
-            touch-action: none;
-        }
-    </style>
 </head>
 <body>
 
-<div>
-    <input type="file" id="file_upload" style="position:fixed; left:-100em"/>
-    <button id="import">Import</button>
 
-    <button id="testSave">Import</button>
-    <input id="fileName">FileName</input>
-
-    <button id="export">ExportFile</button>
-    <input id="exportInput">FileName</input>
+<div class="tittleBar">
+    <label class="tittleBar_actionsHolder"><p class="testBlock">Select file</p>
+        <input class="testBlock" id="openLocalInput" type="file"/>
+        <button class="testBlock" id="openLocalButton">Open local</button>
+    </label>
+    <label class="tittleBar_actionsHolder"><p class="testBlock">Select file</p>
+        <input class="testBlock" id="uploadCurrentInputButton">File name</input>
+        <button class="testBlock" id="uploadCurrentInput">Save file</button>
+    </label>
+    <label class="tittleBar_actionsHolder"><p class="testBlock">Select file</p>
+        <input class="testBlock" id="downloadOpenButton">File name</input>
+        <button class="testBlock" id="downloadOpenInput">Export file</button>
+    </label>
 </div>
 
 <div class="stackblitz-container bootstrap5">
