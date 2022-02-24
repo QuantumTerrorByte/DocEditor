@@ -2,7 +2,7 @@
 <html>
 <head>
     <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <title>Doc Editor</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
@@ -22,18 +22,18 @@
 
 <div class="msgLine" id="msgLine"></div>
 <div class="tittleBar">
-    <div class="tittleBar_actionsHolder"><p class="testBlock">Select file</p>
-        <input class="testBlock" id="openLocalInput" type="file"/>
-        <button class="testBlock" id="openLocalButton">Open local</button>
+    <label class="tittleBar_actionsHolder" style="justify-content: start">
+        <input type="file" id="openLocalInput"/>
+        <i class="tittleBar_elem">Open file</i>
+    </label>
+    <div class="tittleBar_actionsHolder">
+        <input class="tittleBar_elem" id="uploadCurrentInput" placeholder="File name"/>
+        <button class="tittleBar_elem" id="uploadCurrentButton">Save file</button>
     </div>
-    <label class="tittleBar_actionsHolder"><p class="testBlock">Select file</p>
-        <input class="testBlock" id="uploadCurrentButton"/>
-        <button class="testBlock" id="uploadCurrentInput">Save file</button>
-    </label>
-    <label class="tittleBar_actionsHolder"><p class="testBlock">Select file</p>
-        <input class="testBlock" id="downloadOpenButton"/>
-        <button class="testBlock" id="downloadOpenInput">Export file</button>
-    </label>
+    <div class="tittleBar_actionsHolder">
+        <input class="tittleBar_elem" id="downloadOpenInput" placeholder="File name"/>
+        <button class="tittleBar_elem" id="downloadOpenButton">Export file</button>
+    </div>
 </div>
 
 <div class="stackblitz-container bootstrap5">

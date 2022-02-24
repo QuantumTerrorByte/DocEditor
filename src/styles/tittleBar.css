@@ -5,29 +5,63 @@
 .tittleBar {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     width: 1700px;
-    height: 440px;
-    border: solid red 2px;
+    height: 36px;
+    border: solid #d9d9d9 1px;
     margin: 20px;
-}
-
-.testBlock {
-    display: flex;
-    justify-content: center;
-    background: #ffffff;
-    border: lightgrey solid 1px;
-    height: 50px;
-    width: 200px;
 }
 
 .tittleBar_actionsHolder {
     display: flex;
     flex-direction: column;
-    /*justify-content: space-between;*/
+    justify-content: start;
     align-items: center;
-    background: #dec3e7;
-    border: #0022ff solid 2px;
-    height: 5rem;
-    width: 20rem;
+    /*height: 10rem;*/
+    width: 11rem;
+    /*border: solid lightgrey 1px;*/
+    margin: 0;
+}
+
+.tittleBar_elem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 3.1rem;
+    border: solid lightgrey 1px;
+    color: white;
+    background: #3f51b5;
+    margin: 0.1rem;
+}
+.tittleBar_elem::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

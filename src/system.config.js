@@ -1,8 +1,6 @@
 System.config({
     paths: {
-        'npm:': './node_modules/',
-        'syncfusion:': 'npm:@syncfusion/'
-        
+        'syncfusion:': './node_modules/@syncfusion/',
     },
     map: {
         app: 'app',

@@ -3,3 +3,19 @@
 body {
     touch-action: none;
 }
+input {
+    text-align: center;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder {
+    text-align: center;
+}
+
+/*::placeholder {*/
+/*    color: white;*/
+/*    opacity: 1; !* Firefox *!*/
+/*}*/
