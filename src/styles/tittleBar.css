@@ -6,8 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 700px;
-    height: 200px;
+    width: 1700px;
+    height: 440px;
     border: solid red 2px;
     margin: 20px;
 }
@@ -15,8 +15,8 @@
 .testBlock {
     display: flex;
     justify-content: center;
-    background: #e3e3e3;
-    border: black solid 2px;
+    background: #ffffff;
+    border: lightgrey solid 1px;
     height: 50px;
     width: 200px;
 }
@@ -24,7 +24,7 @@
 .tittleBar_actionsHolder {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     align-items: center;
     background: #dec3e7;
     border: #0022ff solid 2px;
