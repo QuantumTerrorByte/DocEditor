@@ -27,7 +27,6 @@ export class TitleBar {
     }
 
     private initializeTitleBar = (isShareNeeded: Boolean): void => {
-        debugger
         let downloadText: string;
         let downloadToolTip: string;
         let printText: string;
@@ -97,7 +96,6 @@ export class TitleBar {
     }
 
     private wireEvents = (): void => {
-        debugger
         this.print.element.addEventListener('click', this.onPrint);
         this.open.element.addEventListener('click', (e: Event) => {
             if ((e.target as HTMLInputElement).id === 'de-open') {

@@ -1,0 +1,51 @@
+/*.documenteditor_titlebar {*/
+/*    border-bottom: 1px solid #2B3481;*/
+/*    height: 36px;*/
+/*    line-height: 26px;*/
+/*    width: 100%;*/
+/*    font-size: 12px;*/
+/*    padding-left: 15px;*/
+/*    padding-right: 10px;*/
+/*    font-family: inherit;*/
+/*}*/
+
+/*.documenteditor_title_contentEditor {*/
+/*    height: 26px;*/
+/*    max-width: 85%;*/
+/*    width: auto;*/
+/*    overflow: hidden;*/
+/*    display: inline-block;*/
+/*    padding-left: 4px;*/
+/*    padding-right: 4px;*/
+/*    margin: 5px;*/
+/*}*/
+
+.single-line {
+    cursor: text !important;
+    outline: none;
+}
+
+.single-line:hover {
+    border-color: #e4e4e4 !important;
+}
+
+[contenteditable="true"].single-line {
+    white-space: nowrap;
+    border-color: #e4e4e4 !important;
+}
+
+/** Document editor sample level font icons*/
+
+
+[class^="e-de-icon-"],
+[class*=" e-de-icon-"] {
+    font-family: 'Sample brower icons' !important;
+}
+
+.e-de-icon-Print:before {
+    content: "\e723";
+}
+
+.e-de-icon-Download:before {
+    content: "\e728";
+}

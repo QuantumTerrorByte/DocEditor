@@ -20,90 +20,59 @@
 </head>
 <body>
 
-<div class="msgLine" id="msgLine"></div>
-<div class="tittleBar">
-    <label class="tittleBar_actionsHolder" style="justify-content: start">
-        <input type="file" id="openLocalInput"/>
-        <i class="tittleBar_elem">Open file</i>
-    </label>
-    <div class="tittleBar_actionsHolder">
-        <input class="tittleBar_elem" id="uploadCurrentInput" placeholder="File name"/>
-        <button class="tittleBar_elem" id="uploadCurrentButton">Save file</button>
-    </div>
-    <div class="tittleBar_actionsHolder">
-        <input class="tittleBar_elem" id="downloadOpenInput" placeholder="File name"/>
-        <button class="tittleBar_elem" id="downloadOpenButton">Export file</button>
-    </div>
-</div>
+<div class="msgLine" id="msgLine">TEST TEXT first second</div>
 
 <div class="stackblitz-container bootstrap5">
     <div class="control-section">
         <div id="documenteditor_titlebar" class="e-de-ctn-title"></div>
         <div id="container"/>
     </div>
-    <style>
-        #documenteditor_titlebar {
-            border-bottom: 1px solid #2B3481;
-            height: 36px;
-            line-height: 26px;
-            width: 100%;
-            font-size: 12px;
-            padding-left: 15px;
-            padding-right: 10px;
-            font-family: inherit;
-        }
-
-        #documenteditor_title_contentEditor {
-            height: 26px;
-            max-width: 85%;
-            width: auto;
-            overflow: hidden;
-            display: inline-block;
-            padding-left: 4px;
-            padding-right: 4px;
-            margin: 5px;
-        }
-
-        .single-line {
-            cursor: text !important;
-            outline: none;
-        }
-
-        .single-line:hover {
-            border-color: #e4e4e4 !important;
-        }
-
-        [contenteditable="true"].single-line {
-            white-space: nowrap;
-            border-color: #e4e4e4 !important;
-        }
-
-        /** Document editor sample level font icons*/
-
-
-        [class^="e-de-icon-"],
-        [class*=" e-de-icon-"] {
-            font-family: 'Sample brower icons' !important;
-        }
-
-        .e-de-icon-Print:before {
-            content: "\e723";
-        }
-
-        .e-de-icon-Download:before {
-            content: "\e728";
-        }
-
-        /** sample level font icons ends*/
-    </style>
-    <script>
-        window.addEventListener("beforeunload", onbeforeunload);
-
-        function onbeforeunload() {
-            return 'Want to save your changes?';
-        };
-    </script>
 </div>
+
+<div class="tittleBar" id="importContainer">
+    <label class="tittleBar_actionsHolder" style="justify-content: start">
+        <input type="file" id="openLocalInput"/>
+        <i class="tittleBar_elem">Open file(local)</i>
+    </label>
+    <input class="tittleBar_elem" id="uploadCurrentInput" placeholder="File name"/>
+    <button class="tittleBar_elem" id="uploadCurrentButton">Save file</button>
+    <input class="tittleBar_elem" id="downloadByNameInput" placeholder="File name"/>
+    <button class="tittleBar_elem" id="downloadByNameButton">Open file(server)</button>
+</div>
+
+<style>
+    #documenteditor_titlebar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid #2B3481;
+        height: 36px;
+        line-height: 26px;
+        width: 100%;
+        font-size: 12px;
+        padding-left: 15px;
+        padding-right: 10px;
+        font-family: inherit;
+    }
+
+    #documenteditor_title_contentEditor {
+        height: 26px;
+        max-width: 85%;
+        width: auto;
+        overflow: hidden;
+        display: inline-block;
+        padding-left: 4px;
+        padding-right: 4px;
+        margin: 5px;
+    }
+</style>
+<script>
+    window.addEventListener("beforeunload", onbeforeunload);
+
+    function onbeforeunload() {
+        return 'Want to save your changes?';
+    };
+</script>
 </body>
 </html>
 
